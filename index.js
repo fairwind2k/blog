@@ -11,25 +11,29 @@ const posts = [
 export default () => {
   const app = new Express();
   app.set('view engine', 'pug');
-  app.use('/assets', Express.static(process.env.NODE_PATH.split(':')[0]));
+  
+  //app.use('/assets', Express.static(process.env.NODE_PATH.split(':')[0]));
   app.use(bodyParser.urlencoded({ extended: false }));
 
   app.get('/', (req, res) => {
     res.render('index');
   });
-  app.get('/', (req, res) => {
-    res.render('index');
-  });
 
-  // BEGIN (write your solution here)
   app.get('/posts', (req, res) => {
-    res.render('posts/index', posts);
+    res.render('posts/index', { posts });
+  });
+
+  app.get('/posts/:id', (req, res) => {
+    const { id } = req.params;
+    const post = posts.find((elem) => String(elem.index) === id);
+    if (!post) {
+      res.sendStatus(404);
+    } else {
+      res.render('posts/show', { ...post });
+    };
   });
 
 
-  // BEGIN (write your solution here)
-  
-  // END
 
   return app;
 };

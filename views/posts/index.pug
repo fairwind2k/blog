@@ -3,25 +3,26 @@ extends ../layouts/app.pug
 block content
   div
     a(href='/') Main page
-  // <table class="table">
-  //   <tbody>
-  //     <tr><th>Title</th></tr>
-  //     <tr><td><a href="/posts/1">hello</a></td></tr>
-  //     <tr><td><a href="/posts/2">nodejs</a></td></tr>
-  //     <tr><td><a href="/posts/3">asdfa</a></td></tr>
-  //     <tr><td><a href="/posts/4">111</a></td></tr>
-  //   </tbody>
-  // </table>
+  //- // <table class="table">
+  //- //   <tbody>
+  //- //     <tr><th>Title</th></tr>
+  //-     <tr><td><a href="/posts/1">hello</a></td></tr>
+  //-     <tr><td><a href="/posts/2">nodejs</a></td></tr>
+  //-     <tr><td><a href="/posts/3">asdfa</a></td></tr>
+  //-     <tr><td><a href="/posts/4">111</a></td></tr>
+  //-   </tbody>
+  //- </table>
 
-  // BEGIN (write your solution here)
+
   table(class="table")
     tbody
       tr(class="table-primary")
         th Title
-      tr 
-        each postName, index in {'1' : 'hello', '2' : 'nodejs', '3' : 'asdfa', '4' : '111'}
+      tr
+        each item in posts
           tr
             td(class="table-light")
-              a(href= "/" + 'posts/' + postName)= postName
+              a(href= "/posts/" + `${item.index}`)= item.title
 
-  // END
+
+//- END

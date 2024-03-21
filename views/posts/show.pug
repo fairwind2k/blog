@@ -3,6 +3,10 @@ extends ../layouts/app.pug
 block content
   div
     a(href='/') Main page
-  // BEGIN (write your solution here)
-  
-  // END
+    
+    table(class="table")
+      tbody
+        tr(class="table-primary")
+          th= title
+        tr
+         td(class="table-light")= text

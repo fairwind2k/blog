@@ -7,6 +7,27 @@ block content
   //   <input type="submit" value="Save">
   //  </form>
 
-  // BEGIN (write your solution here)
+  form(
+    action='/posts'
+    method="post"
+  )
+    div(class="mb-3")
+      label(class="form-label") Title
+        sup *
+      input(class="form-control" name="title")
+    div
+      label(class="form-label") Body
+        sup *
+      textarea(
+        class="form-control"
+        rows="10"
+        name="body"
+      )
+    input(
+      class="form-control"
+      class="btn btn-primary mb-3"
+      type="submit"
+      value="Save"
+    )
+
   
-  // END

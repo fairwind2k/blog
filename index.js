@@ -23,6 +23,10 @@ export default () => {
     res.render('posts/index', { posts });
   });
 
+  app.get('/posts/new', (req, res) => {
+    res.render('posts/new');
+  });
+
   app.get('/posts/:id', (req, res) => {
     const { id } = req.params;
     const post = posts.find((elem) => String(elem.index) === id);

@@ -37,6 +37,30 @@ export default () => {
     };
   });
 
+  // app.post('/posts', (req, res) => {
+  //   if (!req.body) {
+  //     res.redirect('/posts/new');
+  //     return res.sendStatus(422);
+  //     }
+  //   const { title, body } = req.body;
+  //   const newPost = new Post(title, body);
+  //   console.log('newPost', newPost);
+  //   posts.push(newPost);
+  //   res.redirect(`/posts/${newPost.index}`);
+  // });
+
+  app.post('/posts', (req, res) => {
+    const { title, body } = req.body;
+    console.log('req.body', req.body);
+    if ((title === '') || (body === '')) {
+      res.sendStatus(422);
+      res.render('/posts/new', {title: 'Fill the title', body: 'Write something'});
+    };
+    const newPost = new Post(title, body);
+    posts.push(newPost);
+    res.redirect(`/posts/${newPost.index}`);
+  });
+  
 
 
   return app;

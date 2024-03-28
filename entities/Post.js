@@ -3,10 +3,10 @@ class Post {
   static getId() {
     return Post.id;
   }
-  constructor(title, text) {
+  constructor(title, body) {
     this.index = Post.getId();
     this.title = title;
-    this.text = text;
+    this.body = body;
     Post.id = this.index + 1;
  } 
 }
